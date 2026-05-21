@@ -3,7 +3,7 @@ class CyberRain < Formula
   homepage "https://github.com/anthony-cervantes/cyber-rain"
   url "https://crates.io/api/v1/crates/cyber-rain/0.1.0/download"
   sha256 "b36a3169d480302c592876b834d3edd48a0fb1bfe16a9bfcf6743874ae5d353a"
-  license "MIT OR Apache-2.0"
+  license any_of: ["MIT", "Apache-2.0"]
 
   depends_on "rust" => :build
 
