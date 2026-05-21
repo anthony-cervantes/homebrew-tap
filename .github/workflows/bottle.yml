@@ -1,0 +1,52 @@
+name: Bottle cyber-rain
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - Formula/cyber-rain.rb
+
+permissions:
+  contents: write
+
+jobs:
+  bottle:
+    name: Bottle ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-14
+          - ubuntu-latest
+
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v4
+        with:
+          path: homebrew-tap
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap local checkout
+        run: brew tap anthony-cervantes/tap "$GITHUB_WORKSPACE/homebrew-tap"
+
+      - name: Audit
+        run: brew audit --formula anthony-cervantes/tap/cyber-rain
+
+      - name: Build bottle
+        run: |
+          brew install --build-bottle anthony-cervantes/tap/cyber-rain
+          brew test anthony-cervantes/tap/cyber-rain
+          brew bottle --json --no-rebuild anthony-cervantes/tap/cyber-rain
+
+      - name: Upload bottle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cyber-rain-bottle-${{ matrix.os }}
+          path: |
+            *.bottle.*.tar.gz
+            *.bottle.json

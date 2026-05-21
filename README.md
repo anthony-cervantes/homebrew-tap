@@ -14,3 +14,5 @@ Or tap first:
 brew tap anthony-cervantes/tap
 brew install cyber-rain
 ```
+
+Bottle artifacts are built by the `Bottle cyber-rain` GitHub Actions workflow for tap maintainers.
