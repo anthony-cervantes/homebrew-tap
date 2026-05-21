@@ -43,5 +43,6 @@ jobs:
         with:
           name: cyber-rain-bottle-${{ matrix.os }}
           path: |
-            *.bottle.*.tar.gz
+            *.bottle.tar.gz
             *.bottle.json
+          if-no-files-found: error
