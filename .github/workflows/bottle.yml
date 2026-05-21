@@ -25,14 +25,9 @@ jobs:
     steps:
       - name: Checkout tap
         uses: actions/checkout@v4
-        with:
-          path: homebrew-tap
 
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-
-      - name: Tap local checkout
-        run: brew tap --custom-remote anthony-cervantes/tap "$GITHUB_WORKSPACE/homebrew-tap"
 
       - name: Audit
         run: brew audit --formula anthony-cervantes/tap/cyber-rain
