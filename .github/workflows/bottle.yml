@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - Formula/cyber-rain.rb
+      - .github/workflows/bottle.yml
 
 permissions:
   contents: write
@@ -20,6 +21,8 @@ jobs:
       matrix:
         os:
           - macos-14
+          - macos-15
+          - macos-26
           - ubuntu-latest
 
     steps:
