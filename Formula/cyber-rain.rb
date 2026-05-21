@@ -7,8 +7,10 @@ class CyberRain < Formula
 
   bottle do
     root_url "https://github.com/anthony-cervantes/homebrew-tap/releases/download/cyber-rain-0.3.0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "ded820bc5e168e68c10f59632c7cf75d1d0f34a822ac183705ed31cd2b715855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "597afa09372b190a250f5045959cbee5ae044138db3b7f51c8d208f251f12f7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "280499505cd9bd739d4a55ba2c09b00b456d41e17abf30399255f4b97cb4fbcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8580a9cd10db45c1164d1347c48a74ed9cafe94b812eeffb0b55d65ccca3ed2a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c5da5dffd8a919a7ed2cf510dbea2f07717b3f3d33de05dfe55db8bf9c7109a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dc1a59ed6ed54ad2bdd95ddac4e54e5f9af0472633f8cafab0dea35bfbce519"
   end
 
   depends_on "rust" => :build
